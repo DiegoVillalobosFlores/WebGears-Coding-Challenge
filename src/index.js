@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
-import { MainLayout } from './layouts';
+import './ui/styles/index.css';
+import { MainLayout } from './ui/layouts';
 import { StateProvider } from './store';
 
 ReactDOM.render(

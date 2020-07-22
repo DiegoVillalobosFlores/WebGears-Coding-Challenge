@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { store } from '../../store';
-import { PRODUCT_ADD, PRODUCT_DELETE, PRODUCT_UPDATE } from '../../store/inventory';
+import { store } from '../../../store';
+import { PRODUCT_ADD, PRODUCT_DELETE, PRODUCT_UPDATE } from '../../../store/inventory';
 
 import InventoryItem from './inventoryItem';
 
