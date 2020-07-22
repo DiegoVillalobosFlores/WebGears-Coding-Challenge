@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { store } from '../../store';
-import { PRODUCT_ADD, PRODUCT_DELETE } from '../../store/inventory';
+import { PRODUCT_ADD, PRODUCT_DELETE, PRODUCT_UPDATE } from '../../store/inventory';
 
 import InventoryItem from './item';
 
@@ -29,10 +29,11 @@ const Inventory = () => {
 			/>
 			{inventory.data.map(product => (
 				<InventoryItem
-					product={product}
-					onButtonClick={() => dispatch({ type: PRODUCT_DELETE, data: product.id})}
-					buttonLabel='Remove Product'
 					key={product.id}
+					product={product}
+					buttonLabel='Remove Product'
+					onChange={(field, value) => dispatch({ type: PRODUCT_UPDATE, data: {...product, [field]: value} })}
+					onButtonClick={() => dispatch({ type: PRODUCT_DELETE, data: product.id})}
 				/>
 			))}
 		</div>
