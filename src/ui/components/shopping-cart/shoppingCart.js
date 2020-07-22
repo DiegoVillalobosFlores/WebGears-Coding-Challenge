@@ -9,8 +9,8 @@ const ShoppingCart = () => {
 	const { inventory } = globalState;
 
 	const cart = inventory.data
-		.filter(({ cart }) => cart > 0)
-		.reduce((acc, p) => ({ total: acc.total + p.price * p.cart, items: [...acc.items, p]}),{ total: 0, items: []});
+		.filter(({ inCart }) => inCart > 0)
+		.reduce((acc, p) => ({ total: acc.total + p.price * p.inCart, items: [...acc.items, p]}),{ total: 0, items: []});
 
 	return (
 		<div className='Container cart'>
@@ -19,7 +19,7 @@ const ShoppingCart = () => {
 				<CartItem
 					key={product.id}
 					product={product}
-					onDelete={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, cart: 0} })}
+					onDelete={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, inCart: 0} })}
 				/>
 			))}
 			{

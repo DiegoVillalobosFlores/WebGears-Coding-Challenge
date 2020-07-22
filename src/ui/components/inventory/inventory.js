@@ -15,7 +15,7 @@ const Inventory = () => {
 		price: 0,
 		imageURL: '',
 		description: '',
-		cart: 0,
+		inCart: 0,
 	});
 
 	return (
