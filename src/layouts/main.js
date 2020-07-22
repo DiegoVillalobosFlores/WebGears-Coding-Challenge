@@ -3,8 +3,8 @@ import {Inventory, ProductList, ShoppingCart} from '../components';
 
 import '../styles/mainLayout.css';
 
-const MainLayout = props => {
-	return (<div className='MainContainer'>
+const MainLayout = () => {
+	return (<div className='Container main'>
 		<ProductList/>
 		<ShoppingCart/>
 		<Inventory/>

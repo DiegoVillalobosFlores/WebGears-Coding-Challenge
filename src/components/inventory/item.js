@@ -1,11 +1,13 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { shape, string, func } from 'prop-types';
 
 import ItemInput from './itemInput';
 
 import '../../styles/inventory.css';
 
-const InventoryItem = ({ title, price, imageURL, description, buttonLabel, onButtonClick, onChange }) => {
+const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
+	const { title, price, imageURL, description } = product;
+
 	return (
 		<div className='InventoryItemContainer'>
 			<ItemInput
@@ -48,10 +50,12 @@ InventoryItem.defaultProps = {
 };
 
 InventoryItem.propTypes = {
-	title: string.isRequired,
-	price: string.isRequired,
-	imageURL: string.isRequired,
-	description: string.isRequired,
+	product: shape({
+		title: string.isRequired,
+		price: string.isRequired,
+		imageURL: string.isRequired,
+		description: string.isRequired,
+	}).isRequired,
 	buttonLabel: string.isRequired,
 	onButtonClick: func.isRequired,
 	onChange: func

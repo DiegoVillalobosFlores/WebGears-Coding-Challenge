@@ -19,26 +19,20 @@ const Inventory = () => {
 	});
 
 	return (
-		<div className='InventoryContainer'>
-			<h1 className='InventoryTitle'>Inventory</h1>
+		<div className='Container inventory'>
+			<h1 className='ContainerTitle'>Inventory</h1>
 			<InventoryItem
-				title={item.title}
-				price={item.price}
-				imageURL={item.imageURL}
-				description={item.description}
+				product={item}
 				buttonLabel='Add Item'
 				onChange={(field, value) => setItem({...item, [field]: value})}
 				onButtonClick={() => dispatch({ type: PRODUCT_ADD, data: {...item, id: new Date().getTime()} })}
 			/>
-			{inventory.data.map(({ title, price, imageURL, description, id }) => (
+			{inventory.data.map(product => (
 				<InventoryItem
-					title={title}
-					onButtonClick={() => dispatch({ type: PRODUCT_DELETE, data: id})}
+					product={product}
+					onButtonClick={() => dispatch({ type: PRODUCT_DELETE, data: product.id})}
 					buttonLabel='Remove Product'
-					price={price}
-					description={description}
-					imageURL={imageURL}
-					key={id}
+					key={product.id}
 				/>
 			))}
 		</div>
