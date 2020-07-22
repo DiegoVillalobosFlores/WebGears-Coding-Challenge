@@ -1,0 +1,38 @@
+.InventoryContainer {
+  display: grid;
+  grid-area: inventory;
+}
+
+.InventoryItemContainer {
+  display: grid;
+  margin: 16px;
+  grid-gap: 5px 5px;
+  padding: 8px;
+  border: solid 1px;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    'title price'
+    'image image'
+    'description description'
+    'button button';
+}
+
+.InventoryInput.title {
+  grid-area: title;
+}
+
+.InventoryInput.price {
+  grid-area: price;
+}
+
+.InventoryInput.imageUrl {
+  grid-area: image;
+}
+
+.InventoryInput.description {
+  grid-area: description;
+}
+
+.InventoryInput.button {
+  grid-area: button;
+}
