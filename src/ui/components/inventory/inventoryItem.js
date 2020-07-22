@@ -21,7 +21,7 @@ const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
 				value={price.toString()}
 				type='number'
 				className='InventoryInput price'
-				onChange={e => onChange('price', parseInt(e.target.value))}
+				onChange={e => onChange('price', parseInt(e.target.value  > 0 ? e.target.value : 1))}
 			/>
 			<ItemInput
 				placeholder='Image URL'

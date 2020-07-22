@@ -6,17 +6,24 @@ import InventoryItem from './inventoryItem';
 
 import '../../styles/inventory.css';
 
+const initialItem = {
+	title: '',
+	price: 1,
+	imageURL: '',
+	description: '',
+	inCart: 0,
+};
+
 const Inventory = () => {
 	const { state: globalState, dispatch} = useContext(store);
 	const { inventory } = globalState;
 
-	const [item, setItem] = useState({
-		title: '',
-		price: 0,
-		imageURL: '',
-		description: '',
-		inCart: 0,
-	});
+	const [item, setItem] = useState(initialItem);
+
+	const insertProduct = () => {
+		dispatch({ type: PRODUCT_ADD, data: {...item, id: new Date().getTime().toString() } });
+		setItem(initialItem);
+	};
 
 	return (
 		<div className='Container inventory'>
@@ -25,7 +32,7 @@ const Inventory = () => {
 				product={item}
 				buttonLabel='Add Item'
 				onChange={(field, value) => setItem({...item, [field]: value})}
-				onButtonClick={() => dispatch({ type: PRODUCT_ADD, data: {...item, id: new Date().getTime().toString() } })}
+				onButtonClick={insertProduct}
 			/>
 			{inventory.data.map(product => (
 				<InventoryItem
