@@ -8,7 +8,7 @@ export const reducer = {
 			...state.shoppingCart,
 			data: {
 				...state.shoppingCart.data,
-				[data.id]: state.shoppingCart.data[data.id] + 1 || 0
+				[data]: state.shoppingCart.data[data] + 1 || 0
 			}
 		}
 	}),
