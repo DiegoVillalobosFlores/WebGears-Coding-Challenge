@@ -3,6 +3,7 @@
   grid-area: inventory;
   border: solid 1px;
   padding-bottom: 8px;
+  grid-row-gap: 10px;
 }
 
 .InventoryItemContainer {
