@@ -6,7 +6,7 @@ import '../../styles/shoppingCart.css';
 const Total = ({ total }) => {
 	return (
 		<div className='CartTotalContainer'>
-			<p>Total: {'\t'}</p>
+			<p>Total: </p>
 			<p>{total}$</p>
 		</div>
 	);
