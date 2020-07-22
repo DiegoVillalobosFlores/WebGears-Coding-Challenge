@@ -1,10 +1,5 @@
-import React from 'react';
+import ShoppingCart from './shoppingCart';
 
-const ShoppingCart = () => {
-	return (
-		<div className='Container cart'>
-			<h1 className='ContainerTitle'>Shopping Cart</h1>
-		</div>);
+export {
+	ShoppingCart
 };
-
-export default ShoppingCart;
