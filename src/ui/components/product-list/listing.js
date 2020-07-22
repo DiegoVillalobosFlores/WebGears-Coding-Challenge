@@ -1,9 +1,9 @@
 import React from 'react';
-import { shape, string, func } from 'prop-types';
+import { shape, string, number, func } from 'prop-types';
 
 import '../../styles/productList.css';
 
-const Listing = ({ product, onClick }) => {
+const Listing = ({ product, onAdd }) => {
 	const { title, imageURL, price, description } = product;
 	return (
 		<div className='ProductListingContainer'>
@@ -11,7 +11,7 @@ const Listing = ({ product, onClick }) => {
 			<p className='ProductLabel title' >{title}</p>
 			<p className='ProductLabel price' >{price}$</p>
 			<p className='ProductLabel description' >{description}</p>
-			<input className='ProductButton' type='button' value='Add to Order' onClick={onClick}/>
+			<input className='ProductButton' type='button' value='Add to Order' onClick={onAdd}/>
 		</div>
 	);
 };
@@ -19,11 +19,11 @@ const Listing = ({ product, onClick }) => {
 Listing.propTypes = {
 	product: shape({
 		title: string.isRequired,
-		price: string.isRequired,
+		price: number.isRequired,
 		imageURL: string.isRequired,
 		description: string.isRequired,
 	}).isRequired,
-	onClick: func.isRequired,
+	onAdd: func.isRequired,
 };
 
 export default Listing;

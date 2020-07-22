@@ -1,5 +1,5 @@
 import React from 'react';
-import { shape, string, func } from 'prop-types';
+import { shape, string, number, func } from 'prop-types';
 
 import ItemInput from './itemInput';
 
@@ -18,10 +18,10 @@ const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
 			/>
 			<ItemInput
 				placeholder='Price'
-				value={price}
+				value={price.toString()}
 				type='number'
 				className='InventoryInput price'
-				onChange={e => onChange('price', e.target.value)}
+				onChange={e => onChange('price', parseInt(e.target.value))}
 			/>
 			<ItemInput
 				placeholder='Image URL'
@@ -52,7 +52,7 @@ InventoryItem.defaultProps = {
 InventoryItem.propTypes = {
 	product: shape({
 		title: string.isRequired,
-		price: string.isRequired,
+		price: number.isRequired,
 		imageURL: string.isRequired,
 		description: string.isRequired,
 	}).isRequired,

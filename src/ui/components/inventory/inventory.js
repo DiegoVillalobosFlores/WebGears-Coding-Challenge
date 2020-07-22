@@ -12,7 +12,7 @@ const Inventory = () => {
 
 	const [item, setItem] = useState({
 		title: '',
-		price: '',
+		price: 0,
 		imageURL: '',
 		description: '',
 		cart: 0,

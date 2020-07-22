@@ -18,7 +18,7 @@ const ProductList = () => {
 				<Listing
 					key={product.id}
 					product={product}
-					onClick={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, cart: product.cart + 1} })}
+					onAdd={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, cart: product.cart + 1} })}
 				/>
 			))}
 		</div>
