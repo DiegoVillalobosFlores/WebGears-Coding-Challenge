@@ -1,0 +1,32 @@
+.CartItemContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-areas:
+    'title price button'
+    'quantityLabel quantity button';
+  max-height: 100px;
+  align-items: center;
+  padding: 16px;
+  grid-template-rows: 1fr 1fr;
+}
+
+.CartItemLabel.title {
+  grid-area: title;
+}
+
+.CartItemLabel.price {
+  grid-area: price;
+  text-align: end;
+}
+.CartItemLabel.quantityLabel {
+  grid-area: quantityLabel;
+}
+
+.CartItemLabel.quantity {
+  grid-area: quantity;
+  text-align: end;
+}
+
+.CartItemButton {
+  grid-area: button;
+}
