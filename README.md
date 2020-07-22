@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WebGears Coding Challenge by Diego Villalobos 
 
-## Available Scripts
+## Made with React and it's context API + hooks
 
-In the project directory, you can run:
+[Hosted on Firebase](https://webgearscodingchallenge.web.app/)
 
-### `yarn start`
+## Why the context API and not Redux?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is in my opinion the most interesting aspect of the project.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Redux is probably the most used state management library for react, so, why not use it?
 
-### `yarn test`
+It all comes down to simplicity really.
+Redux being a 3rd party dependency adds an unnecessary burden to the project, well, it was necessary.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+But now there's a first party solution for state management:
 
-### `yarn build`
+### Context API
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Starting from version 16.8 react added 2 new important improvements to the way the state is managed in React:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Hooks
+* Context API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Hooks help us remove the classes in our stateful components while the context api serves
+ as a state provider to the whole application.
 
-### `yarn eject`
+Both of them combined make working with state in React a breeze, since you can use the useReducer hook
+together with useContext to basically replace redux or any other state management library (MobX).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Final Thoughts about the context API as a Redux replacement
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before this I had never worked with the context API, mostly because it's hard to implement a new tech
+in production, but also because it wasn't as tested as it is today, now you can safely try to implement
+it in all your applications.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Overall it left me a really good first impression. I really enjoyed working with it and I see myself
+usign it more in the future. Maybe not as a full replacement for Redux but, less Redux is alwasy better.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
