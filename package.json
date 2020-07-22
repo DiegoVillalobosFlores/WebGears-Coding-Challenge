@@ -1,13 +1,10 @@
 {
   "name": "webgears-coding-challenge",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -30,5 +27,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "Web Gears Coding Challenge",
+  "main": "index.js",
+  "repository": "https://github.com/DiegoVillalobosFlores/WebGears-Coding-Challenge.git",
+  "author": "Villalobos <diegovillalobos397@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "7.5.0",
+    "eslint-plugin-react": "7.20.3"
   }
 }
