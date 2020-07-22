@@ -4,23 +4,24 @@ export const CART_REMOVE_PRODUCT = 'CART_REMOVE_PRODUCT';
 export const reducer = {
 	CART_ADD_PRODUCT: (state, { data }) => ({
 		...state,
-		cart: {
-			...state.cart,
+		shoppingCart: {
+			...state.shoppingCart,
 			data: {
-				[data.id]: state.cart.data[data.id] + 1 || 0
+				...state.shoppingCart.data,
+				[data.id]: state.shoppingCart.data[data.id] + 1 || 0
 			}
 		}
 	}),
 	CART_REMOVE_PRODUCT: (state, { data }) => {
-		const { cart } = state;
-		const newCartData = { ...cart.data };
+		const { shoppingCart } = state;
+		const newCartData = { ...shoppingCart.data };
 
-		delete newCartData[data.id];
+		delete newCartData[data];
 
 		return {
 			...state,
-			cart: {
-				...cart,
+			shoppingCart: {
+				...shoppingCart,
 				data: newCartData
 			}
 		};
