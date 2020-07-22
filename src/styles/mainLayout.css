@@ -1,6 +1,7 @@
 .MainContainer {
   display: grid;
   grid-template-columns: auto auto auto;
+  margin: 16px;
   grid-template-areas:
     'list cart inventory';
 }

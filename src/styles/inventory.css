@@ -1,13 +1,17 @@
 .InventoryContainer {
   display: grid;
   grid-area: inventory;
+  border: solid 1px;
+  padding-bottom: 8px;
 }
 
 .InventoryItemContainer {
   display: grid;
-  margin: 16px;
   grid-gap: 5px 5px;
   padding: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
   border: solid 1px;
   grid-template-columns: auto auto;
   grid-template-areas:
@@ -15,6 +19,10 @@
     'image image'
     'description description'
     'button button';
+}
+
+.InventoryTitle {
+  text-align: center;
 }
 
 .InventoryInput.title {
@@ -31,6 +39,7 @@
 
 .InventoryInput.description {
   grid-area: description;
+  min-height: 50px;
 }
 
 .InventoryInput.button {
