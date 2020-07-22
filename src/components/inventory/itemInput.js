@@ -1,8 +1,14 @@
 import React from 'react';
 import { string, func } from 'prop-types';
 
-const ItemInput = ({ placeholder, type, value, className }) => (
-	<input placeholder={placeholder} type={type} value={value} className={className}/>
+const ItemInput = ({ placeholder, type, value, className, onClick, onChange }) => (
+	<input
+		placeholder={placeholder}
+		type={type} value={value}
+		className={className}
+		onClick={onClick}
+		onChange={onChange}
+	/>
 );
 
 ItemInput.defaultProps = {
