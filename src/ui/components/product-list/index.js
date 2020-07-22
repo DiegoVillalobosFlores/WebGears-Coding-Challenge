@@ -1,7 +1,7 @@
-import ProductList from './productList';
 import Listing from './listing';
+import ProductList from './productList';
 
 export {
-	ProductList,
-	Listing
+	Listing,
+	ProductList
 };
