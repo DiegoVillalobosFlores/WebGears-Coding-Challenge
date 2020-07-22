@@ -22,7 +22,6 @@ Listing.propTypes = {
 		price: string.isRequired,
 		imageURL: string.isRequired,
 		description: string.isRequired,
-		buttonLabel: string.isRequired,
 	}).isRequired,
 	onClick: func.isRequired,
 };
