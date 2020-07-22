@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 
 import { store } from '../../../store';
-import { CART_ADD_PRODUCT } from '../../../store/shoppingCart';
+import { PRODUCT_UPDATE } from '../../../store/inventory';
+
 import Listing from './listing';
 
 import '../../styles/mainLayout.css';
@@ -17,7 +18,7 @@ const ProductList = () => {
 				<Listing
 					key={product.id}
 					product={product}
-					onClick={() => dispatch({ type:CART_ADD_PRODUCT, data: product.id })}
+					onClick={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, cart: product.cart + 1} })}
 				/>
 			))}
 		</div>

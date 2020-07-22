@@ -2,7 +2,6 @@ import React, { createContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 import { reducer as InventoryReducer } from './inventory';
-import { reducer as CartReducer } from './shoppingCart';
 import InitialState from './initialState';
 
 const store = createContext(InitialState);
@@ -10,7 +9,6 @@ const { Provider } = store;
 
 const globalReducer = {
 	...InventoryReducer,
-	...CartReducer
 };
 
 const StateProvider = ({ children }) => {
