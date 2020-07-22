@@ -25,7 +25,7 @@ const Inventory = () => {
 				product={item}
 				buttonLabel='Add Item'
 				onChange={(field, value) => setItem({...item, [field]: value})}
-				onButtonClick={() => dispatch({ type: PRODUCT_ADD, data: {...item, id: new Date().getTime()} })}
+				onButtonClick={() => dispatch({ type: PRODUCT_ADD, data: {...item, id: new Date().getTime().toString() } })}
 			/>
 			{inventory.data.map(product => (
 				<InventoryItem
