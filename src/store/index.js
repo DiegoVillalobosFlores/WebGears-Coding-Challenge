@@ -1,14 +1,14 @@
 import React, { createContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
-import InventoryContext from './inventory';
+import { reducer as InventoryReducer } from './inventory';
 import InitialState from './initialState';
 
 const store = createContext(InitialState);
 const { Provider } = store;
 
 const globalReducer = {
-	...InventoryContext.reducer,
+	...InventoryReducer,
 };
 
 const StateProvider = ({ children }) => {
