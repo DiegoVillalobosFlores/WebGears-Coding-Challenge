@@ -35,7 +35,7 @@ in production, but also because it wasn't as tested as it is today, now you can 
 it in all your applications.
 
 Overall it left me a wonderful first impression. I really enjoyed working with it and I see myself
-usign it more in the future. Maybe not as a full replacement for Redux but, less Redux is always better.
+using it more in the future. Maybe not as a full replacement for Redux but, less Redux is always better.
 
 ### Opinions of the challenge
 
