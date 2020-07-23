@@ -41,7 +41,7 @@ const Inventory = () => {
 				product={item}
 				buttonLabel='Add Item'
 				onChange={(field, value) => setItem({...item, [field]: value})}
-				onButtonClick={onProductAdd}
+				onClick={onProductAdd}
 			/>
 			{inventory.data.map(product => (
 				<InventoryItem
@@ -49,7 +49,7 @@ const Inventory = () => {
 					product={product}
 					buttonLabel='Remove Product'
 					onChange={onProductUpdate}
-					onButtonClick={onProductDelete}
+					onClick={onProductDelete}
 				/>
 			))}
 		</div>

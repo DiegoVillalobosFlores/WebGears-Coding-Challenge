@@ -1,6 +1,8 @@
 import React from 'react';
 import { string, func } from 'prop-types';
 
+const defaultFunc = () => {};
+
 const Input = ({ placeholder, type, value, field, className, onClick, onChange }) => {
 
 	const handleChange = (e) => {
@@ -22,8 +24,8 @@ Input.defaultProps = {
 	placeholder: '',
 	type: 'text',
 	field: '',
-	onChange: () => {},
-	onClick: () => {},
+	onChange: defaultFunc,
+	onClick: defaultFunc,
 };
 
 Input.propTypes = {

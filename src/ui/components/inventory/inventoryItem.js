@@ -6,7 +6,9 @@ import { TextArea } from '../text';
 
 import '../../styles/inventory.css';
 
-const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
+const defaultFunc = () => {};
+
+const InventoryItem = ({ product, buttonLabel, onClick, onChange }) => {
 	const { title, price, imageURL, description } = product;
 
 	const handleChange = (field, value) => {
@@ -15,7 +17,7 @@ const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
 	};
 
 	const handleClick = () => {
-		onButtonClick(product);
+		onClick(product);
 	};
 
 	return (
@@ -60,7 +62,8 @@ const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
 };
 
 InventoryItem.defaultProps = {
-	onChange: () => {},
+	onChange: defaultFunc,
+	onClick: defaultFunc,
 };
 
 InventoryItem.propTypes = {
@@ -71,7 +74,7 @@ InventoryItem.propTypes = {
 		description: string.isRequired,
 	}).isRequired,
 	buttonLabel: string.isRequired,
-	onButtonClick: func.isRequired,
+	onClick: func,
 	onChange: func
 };
 
