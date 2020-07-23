@@ -9,8 +9,10 @@ const ShoppingCart = () => {
 	const { inventory } = globalState;
 
 	const cart = inventory.data
-		.filter(({ inCart }) => inCart > 0)
-		.reduce((acc, p) => ({ total: acc.total + p.price * p.inCart, items: [...acc.items, p]}),{ total: 0, items: []});
+		.reduce((acc, p) => {
+			if(p.inCart < 1) return  acc;
+			return  ({ total: acc.total + p.price * p.inCart, items: [...acc.items, p]});
+		},{ total: 0, items: []});
 
 	return (
 		<div className='Container cart'>
