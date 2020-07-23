@@ -37,4 +37,14 @@ it in all your applications.
 Overall it left me a wonderful first impression. I really enjoyed working with it and I see myself
 usign it more in the future. Maybe not as a full replacement for Redux but, less Redux is always better.
 
+### Opinions of the challenge
 
+The challenge was fair and well explained, straight forward and simple but interesting, however, there are some
+elements of it that were not defined:
+
+* Should the 'Add Product' form clear every time it adds a new product?
+    * I decided to clear it because it looks nicer and less confusing
+* Should you be able to add empty products?
+    * I decided yes, because you are able to edit them
+* Can the price be negative?
+    * I decided no, because normally in financial situations you don't want a negative (I put 1 as the minimum)
