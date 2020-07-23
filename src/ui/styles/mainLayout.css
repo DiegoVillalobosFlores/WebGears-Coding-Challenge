@@ -8,9 +8,6 @@
 .Container.main {
   display: grid;
   grid-template-columns: auto;
-  grid-column-gap: 8px;
-  border: none;
-  margin: 8px;
   grid-template-areas:
     'list'
     'cart'
@@ -20,7 +17,6 @@
 @media only screen and (min-width: 1080px) {
   /* For desktop: */
   .Container.main {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 8px;
     border: none;

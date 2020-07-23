@@ -6,12 +6,25 @@
   margin-right: 8px;
   margin-top: 8px;
   border: solid 1px;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto;
   grid-template-areas:
+    'title'
+    'price'
+    'image'
+    'description'
+    'button';
+}
+
+@media only screen and (min-width: 1080px) {
+  /* For desktop: */
+  .InventoryItemContainer {
+    grid-template-columns: auto auto;
+    grid-template-areas:
     'title price'
     'image image'
     'description description'
     'button button';
+  }
 }
 
 .InventoryInput.title {

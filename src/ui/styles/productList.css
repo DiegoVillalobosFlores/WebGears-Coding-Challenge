@@ -1,11 +1,12 @@
 .ProductListingContainer {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    'image title price'
-    'image description description'
-    'image button button';
+    'image image'
+    'title price'
+    'description description'
+    'button button';
   border: solid 1px;
   padding: 12px;
   margin-left: 8px;
@@ -16,8 +17,25 @@
 
 .ProductImage {
   grid-area: image;
-  height: 200px;
-  width: 200px;
+  width: 100%;
+  margin: auto;
+}
+
+@media only screen and (min-width: 1080px) {
+  /* For desktop: */
+  .ProductImage {
+    height: 200px;
+    width: 200px;
+  }
+
+  .ProductListingContainer {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    'image title price'
+    'image description description'
+    'image button button';
+  }
 }
 
 .ProductLabel.title {
@@ -30,6 +48,7 @@
 
 .ProductLabel.price {
   grid-area: price;
+  text-align: end;
 }
 
 .ProductButton {
