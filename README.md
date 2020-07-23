@@ -1,8 +1,8 @@
 WebGears Coding Challenge by Diego Villalobos 
 
-## Made with React and it's context API + hooks
+## Made with React, and its context API + hooks
 
-[Hosted on Firebase](https://webgearscodingchallenge.web.app/)
+[Demo hosted on Firebase](https://webgearscodingchallenge.web.app/)
 
 ## Why the context API and not Redux?
 
@@ -13,11 +13,11 @@ Redux is probably the most used state management library for react, so, why not 
 It all comes down to simplicity really.
 Redux being a 3rd party dependency adds an unnecessary burden to the project, well, it was necessary.
 
-But now there's a first party solution for state management:
+Now there's a first party solution for state management:
 
 ### Context API
 
-Starting from version 16.8 react added 2 new important improvements to the way the state is managed in React:
+Starting from version 16.8 React added 2 new important improvements to the way it manages its state:
 
 * Hooks
 * Context API
@@ -34,7 +34,7 @@ Before this I had never worked with the context API, mostly because it's hard to
 in production, but also because it wasn't as tested as it is today, now you can safely try to implement
 it in all your applications.
 
-Overall it left me a really good first impression. I really enjoyed working with it and I see myself
-usign it more in the future. Maybe not as a full replacement for Redux but, less Redux is alwasy better.
+Overall it left me a wonderful first impression. I really enjoyed working with it and I see myself
+usign it more in the future. Maybe not as a full replacement for Redux but, less Redux is always better.
 
 
