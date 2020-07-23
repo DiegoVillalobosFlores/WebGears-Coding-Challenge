@@ -25,7 +25,7 @@ const InventoryItem = ({ product, buttonLabel, onClick, onChange }) => {
 			<Input
 				placeholder='Title'
 				value={title}
-				field={'title'}
+				field='title'
 				className='InventoryInput title'
 				onChange={handleChange}
 			/>
@@ -33,21 +33,21 @@ const InventoryItem = ({ product, buttonLabel, onClick, onChange }) => {
 				placeholder='Price'
 				value={price.toString()}
 				type='number'
-				field={'price'}
+				field='price'
 				className='InventoryInput price'
 				onChange={handleChange}
 			/>
 			<Input
 				placeholder='Image URL'
 				value={imageURL}
-				field={'imageURL'}
+				field='imageURL'
 				className='InventoryInput imageUrl'
 				onChange={handleChange}
 			/>
 			<TextArea
 				placeholder='Description'
 				value={description}
-				field={'description'}
+				field='description'
 				className='InventoryInput description'
 				onChange={handleChange}
 			/>
