@@ -21,9 +21,17 @@ const Inventory = () => {
 
 	const [item, setItem] = useState(initialItem);
 
-	const insertProduct = () => {
+	const onProductAdd = () => {
 		dispatch({ type: PRODUCT_ADD, data: {...item, id: new Date().getTime().toString() } });
 		setItem(initialItem);
+	};
+
+	const onProductDelete = ({ id }) => {
+		dispatch({ type: PRODUCT_DELETE, data: id});
+	};
+
+	const onProductUpdate = (product, field, value) => {
+		dispatch({ type: PRODUCT_UPDATE, data: {...product, [field]: value} });
 	};
 
 	return (
@@ -33,15 +41,15 @@ const Inventory = () => {
 				product={item}
 				buttonLabel='Add Item'
 				onChange={(field, value) => setItem({...item, [field]: value})}
-				onButtonClick={insertProduct}
+				onButtonClick={onProductAdd}
 			/>
 			{inventory.data.map(product => (
 				<InventoryItem
 					key={product.id}
 					product={product}
 					buttonLabel='Remove Product'
-					onChange={(field, value) => dispatch({ type: PRODUCT_UPDATE, data: {...product, [field]: value} })}
-					onButtonClick={() => dispatch({ type: PRODUCT_DELETE, data: product.id})}
+					onChange={onProductUpdate}
+					onButtonClick={onProductDelete}
 				/>
 			))}
 		</div>

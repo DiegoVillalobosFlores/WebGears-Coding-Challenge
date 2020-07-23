@@ -10,13 +10,17 @@ const CartItemSeparator = () => <div className='CartItemSeparator'/>;
 const CartItem = ({ product, onDelete }) => {
 	const { title, price, inCart } = product;
 
+	const handleClick = () => {
+		onDelete(product);
+	};
+
 	return (
 		<div className='CartItemContainer'>
 			<Label className='CartItemLabel title'>{title}</Label>
 			<Label className='CartItemLabel price'>{price}$</Label>
 			<Label className='CartItemLabel quantityLabel'>Quantity:</Label>
 			<Label className='CartItemLabel quantity'>{inCart}</Label>
-			<Input className='CartItemButton' type='button' value='X' onClick={onDelete}/>
+			<Input className='CartItemButton' type='button' value='X' onClick={handleClick}/>
 			<CartItemSeparator/>
 		</div>
 	);

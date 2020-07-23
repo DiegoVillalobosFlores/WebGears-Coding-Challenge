@@ -9,37 +9,50 @@ import '../../styles/inventory.css';
 const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
 	const { title, price, imageURL, description } = product;
 
+	const handleChange = (field, value) => {
+		if(field === 'price') return onChange(product, field, parseInt(value  > 0 ? value : 1));
+		onChange(product, field, value);
+	};
+
+	const handleClick = () => {
+		onButtonClick(product);
+	};
+
 	return (
 		<div className='InventoryItemContainer'>
 			<Input
 				placeholder='Title'
 				value={title}
+				field={'title'}
 				className='InventoryInput title'
-				onChange={e => onChange('title', e.target.value)}
+				onChange={handleChange}
 			/>
 			<Input
 				placeholder='Price'
 				value={price.toString()}
 				type='number'
+				field={'price'}
 				className='InventoryInput price'
-				onChange={e => onChange('price', parseInt(e.target.value  > 0 ? e.target.value : 1))}
+				onChange={handleChange}
 			/>
 			<Input
 				placeholder='Image URL'
 				value={imageURL}
+				field={'imageURL'}
 				className='InventoryInput imageUrl'
-				onChange={e => onChange('imageURL', e.target.value)}
+				onChange={handleChange}
 			/>
 			<TextArea
 				placeholder='Description'
 				value={description}
+				field={'description'}
 				className='InventoryInput description'
-				onChange={e => onChange('description', e.target.value)}
+				onChange={handleChange}
 			/>
 			<Input
 				type='button'
 				value={buttonLabel}
-				onClick={onButtonClick}
+				onClick={handleClick}
 				className='InventoryInput button'
 			/>
 		</div>

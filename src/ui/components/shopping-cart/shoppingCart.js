@@ -14,19 +14,21 @@ const ShoppingCart = () => {
 			return  ({ total: acc.total + p.price * p.inCart, items: [...acc.items, p]});
 		},{ total: 0, items: []});
 
+	const onDeleteFromCart = product => {
+		dispatch({ type: PRODUCT_UPDATE, data: {...product, inCart: 0} });
+	};
+
 	return (
 		<div className='Container cart'>
 			<TitleLabel className='ContainerTitle'>Shopping Cart</TitleLabel>
-			{items.map(product => (
+			{ items.map(product => (
 				<CartItem
 					key={product.id}
 					product={product}
-					onDelete={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, inCart: 0} })}
+					onDelete={onDeleteFromCart}
 				/>
 			))}
-			{
-				total > 0 && <TotalLabel total={total} className='CartTotalContainer'/>
-			}
+			{ total > 0 && <TotalLabel total={total} className='CartTotalContainer'/> }
 		</div>
 	);
 };

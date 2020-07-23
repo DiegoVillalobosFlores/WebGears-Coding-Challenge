@@ -12,6 +12,10 @@ const ProductList = () => {
 	const { state: globalState, dispatch } = useContext(store);
 	const { inventory } = globalState;
 
+	const onAddToCart = product => {
+		dispatch({ type: PRODUCT_UPDATE, data: {...product, inCart: product.inCart + 1} });
+	};
+
 	return (
 		<div className='Container list'>
 			<TitleLabel className='ContainerTitle'>List of Products</TitleLabel>
@@ -19,7 +23,7 @@ const ProductList = () => {
 				<Listing
 					key={product.id}
 					product={product}
-					onAdd={() => dispatch({ type: PRODUCT_UPDATE, data: {...product, inCart: product.inCart + 1} })}
+					onAdd={onAddToCart}
 				/>
 			))}
 		</div>
