@@ -37,7 +37,7 @@ it in all your applications.
 Overall it left me a wonderful first impression. I really enjoyed working with it and I see myself
 using it more in the future. Maybe not as a full replacement for Redux but, less Redux is always better.
 
-### Opinions of the challenge
+### Opinions on the challenge
 
 The challenge was fair and well explained, straight forward and simple but interesting, however, there are some
 elements of it that were not defined:
