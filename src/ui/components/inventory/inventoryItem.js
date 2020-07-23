@@ -1,7 +1,8 @@
 import React from 'react';
 import { shape, string, number, func } from 'prop-types';
 
-import ItemInput from './itemInput';
+import { Input } from '../inputs';
+import { TextArea } from '../text';
 
 import '../../styles/inventory.css';
 
@@ -10,32 +11,32 @@ const InventoryItem = ({ product, buttonLabel, onButtonClick, onChange }) => {
 
 	return (
 		<div className='InventoryItemContainer'>
-			<ItemInput
+			<Input
 				placeholder='Title'
 				value={title}
 				className='InventoryInput title'
 				onChange={e => onChange('title', e.target.value)}
 			/>
-			<ItemInput
+			<Input
 				placeholder='Price'
 				value={price.toString()}
 				type='number'
 				className='InventoryInput price'
 				onChange={e => onChange('price', parseInt(e.target.value  > 0 ? e.target.value : 1))}
 			/>
-			<ItemInput
+			<Input
 				placeholder='Image URL'
 				value={imageURL}
 				className='InventoryInput imageUrl'
 				onChange={e => onChange('imageURL', e.target.value)}
 			/>
-			<ItemInput
+			<TextArea
 				placeholder='Description'
 				value={description}
 				className='InventoryInput description'
 				onChange={e => onChange('description', e.target.value)}
 			/>
-			<ItemInput
+			<Input
 				type='button'
 				value={buttonLabel}
 				onClick={onButtonClick}

@@ -2,16 +2,17 @@ import React from 'react';
 import { shape, string, number, func } from 'prop-types';
 
 import '../../styles/productList.css';
+import { Input } from '../inputs';
 
 const Listing = ({ product, onAdd }) => {
 	const { title, imageURL, price, description } = product;
 	return (
 		<div className='ProductListingContainer'>
-			<img src={imageURL} alt='product-image' className='ProductImage'/>
+			<img src={imageURL} alt='product' className='ProductImage'/>
 			<p className='ProductLabel title' >{title}</p>
 			<p className='ProductLabel price' >{price}$</p>
 			<p className='ProductLabel description' >{description}</p>
-			<input className='ProductButton' type='button' value='Add to Order' onClick={onAdd}/>
+			<Input className='ProductButton' type='button' value='Add to Order' onClick={onAdd}/>
 		</div>
 	);
 };

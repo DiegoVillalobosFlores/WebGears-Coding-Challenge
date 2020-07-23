@@ -1,7 +1,7 @@
 import React from 'react';
 import { string, func } from 'prop-types';
 
-const ItemInput = ({ placeholder, type, value, className, onClick, onChange }) => (
+const Input = ({ placeholder, type, value, className, onClick, onChange }) => (
 	<input
 		placeholder={placeholder}
 		type={type} value={value}
@@ -11,14 +11,14 @@ const ItemInput = ({ placeholder, type, value, className, onClick, onChange }) =
 	/>
 );
 
-ItemInput.defaultProps = {
+Input.defaultProps = {
 	placeholder: '',
 	type: 'text',
 	onChange: () => {},
 	onClick: () => {},
 };
 
-ItemInput.propTypes = {
+Input.propTypes = {
 	value: string.isRequired,
 	className: string.isRequired,
 	placeholder: string,
@@ -27,4 +27,4 @@ ItemInput.propTypes = {
 	onClick: func
 };
 
-export default ItemInput;
+export default Input;

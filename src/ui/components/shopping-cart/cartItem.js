@@ -2,6 +2,7 @@ import React from 'react';
 import { shape, string, number, func } from 'prop-types';
 
 import '../../styles/shoppingCart.css';
+import { Input } from '../inputs';
 
 const CartItemSeparator = () => <div className='CartItemSeparator'/>;
 
@@ -14,7 +15,7 @@ const CartItem = ({ product, onDelete }) => {
 			<p className='CartItemLabel price'>{price}$</p>
 			<p className='CartItemLabel quantityLabel'>Quantity:</p>
 			<p className='CartItemLabel quantity'>{inCart}</p>
-			<input className='CartItemButton' type='button' value='X' onClick={onDelete}/>
+			<Input className='CartItemButton' type='button' value='X' onClick={onDelete}/>
 			<CartItemSeparator/>
 		</div>
 	);

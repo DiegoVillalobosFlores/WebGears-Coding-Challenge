@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { store } from '../../../store';
 import { PRODUCT_UPDATE } from '../../../store/inventory';
 import CartItem from './cartItem';
-import Total from './total';
+import { TitleLabel, TotalLabel } from '../text';
 
 const ShoppingCart = () => {
 	const { state: globalState, dispatch } = useContext(store);
@@ -16,7 +16,7 @@ const ShoppingCart = () => {
 
 	return (
 		<div className='Container cart'>
-			<h1 className='ContainerTitle'>Shopping Cart</h1>
+			<TitleLabel className='ContainerTitle'>Shopping Cart</TitleLabel>
 			{cart.items.map(product => (
 				<CartItem
 					key={product.id}
@@ -25,7 +25,7 @@ const ShoppingCart = () => {
 				/>
 			))}
 			{
-				cart.total > 0 && <Total total={cart.total}/>
+				cart.total > 0 && <TotalLabel total={cart.total} className='CartTotalContainer'/>
 			}
 		</div>
 	);

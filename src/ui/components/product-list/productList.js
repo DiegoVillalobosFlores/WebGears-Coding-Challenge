@@ -6,6 +6,7 @@ import { PRODUCT_UPDATE } from '../../../store/inventory';
 import Listing from './listing';
 
 import '../../styles/mainLayout.css';
+import { TitleLabel } from '../text';
 
 const ProductList = () => {
 	const { state: globalState, dispatch } = useContext(store);
@@ -13,7 +14,7 @@ const ProductList = () => {
 
 	return (
 		<div className='Container list'>
-			<h1 className='ContainerTitle'>List of Products</h1>
+			<TitleLabel className='ContainerTitle'>List of Products</TitleLabel>
 			{inventory.data.map(product => (
 				<Listing
 					key={product.id}

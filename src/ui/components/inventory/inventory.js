@@ -5,6 +5,7 @@ import { PRODUCT_ADD, PRODUCT_DELETE, PRODUCT_UPDATE } from '../../../store/inve
 import InventoryItem from './inventoryItem';
 
 import '../../styles/inventory.css';
+import { TitleLabel } from '../text';
 
 const initialItem = {
 	title: '',
@@ -27,7 +28,7 @@ const Inventory = () => {
 
 	return (
 		<div className='Container inventory'>
-			<h1 className='ContainerTitle'>Inventory</h1>
+			<TitleLabel className='ContainerTitle'>Inventory</TitleLabel>
 			<InventoryItem
 				product={item}
 				buttonLabel='Add Item'
