@@ -3,6 +3,7 @@ import { shape, string, number, func } from 'prop-types';
 
 import '../../styles/shoppingCart.css';
 import { Input } from '../inputs';
+import { Label } from '../text';
 
 const CartItemSeparator = () => <div className='CartItemSeparator'/>;
 
@@ -11,10 +12,10 @@ const CartItem = ({ product, onDelete }) => {
 
 	return (
 		<div className='CartItemContainer'>
-			<p className='CartItemLabel title'>{title}</p>
-			<p className='CartItemLabel price'>{price}$</p>
-			<p className='CartItemLabel quantityLabel'>Quantity:</p>
-			<p className='CartItemLabel quantity'>{inCart}</p>
+			<Label className='CartItemLabel title'>{title}</Label>
+			<Label className='CartItemLabel price'>{price}$</Label>
+			<Label className='CartItemLabel quantityLabel'>Quantity:</Label>
+			<Label className='CartItemLabel quantity'>{inCart}</Label>
 			<Input className='CartItemButton' type='button' value='X' onClick={onDelete}/>
 			<CartItemSeparator/>
 		</div>

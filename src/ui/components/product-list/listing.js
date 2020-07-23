@@ -3,15 +3,16 @@ import { shape, string, number, func } from 'prop-types';
 
 import '../../styles/productList.css';
 import { Input } from '../inputs';
+import { Label } from '../text';
 
 const Listing = ({ product, onAdd }) => {
 	const { title, imageURL, price, description } = product;
 	return (
 		<div className='ProductListingContainer'>
 			<img src={imageURL} alt='product' className='ProductImage'/>
-			<p className='ProductLabel title' >{title}</p>
-			<p className='ProductLabel price' >{price}$</p>
-			<p className='ProductLabel description' >{description}</p>
+			<Label className='ProductLabel title' >{title}</Label>
+			<Label className='ProductLabel price' >{price}$</Label>
+			<Label className='ProductLabel description' >{description}</Label>
 			<Input className='ProductButton' type='button' value='Add to Order' onClick={onAdd}/>
 		</div>
 	);

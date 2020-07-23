@@ -8,7 +8,7 @@ const ShoppingCart = () => {
 	const { state: globalState, dispatch } = useContext(store);
 	const { inventory } = globalState;
 
-	const cart = inventory.data
+	const { total, items } = inventory.data
 		.reduce((acc, p) => {
 			if(p.inCart < 1) return  acc;
 			return  ({ total: acc.total + p.price * p.inCart, items: [...acc.items, p]});
@@ -17,7 +17,7 @@ const ShoppingCart = () => {
 	return (
 		<div className='Container cart'>
 			<TitleLabel className='ContainerTitle'>Shopping Cart</TitleLabel>
-			{cart.items.map(product => (
+			{items.map(product => (
 				<CartItem
 					key={product.id}
 					product={product}
@@ -25,7 +25,7 @@ const ShoppingCart = () => {
 				/>
 			))}
 			{
-				cart.total > 0 && <TotalLabel total={cart.total} className='CartTotalContainer'/>
+				total > 0 && <TotalLabel total={total} className='CartTotalContainer'/>
 			}
 		</div>
 	);
