@@ -48,3 +48,6 @@ elements of it that were not defined:
     * I decided yes, because you are able to edit them
 * Can the price be negative?
     * I decided no, because normally in financial situations you don't want a negative (I put 1 as the minimum)
+* What should the ordering of the products in the cart be?
+    * I didn't sort the items in order to not confuse the user by having two different orders in the layout
+    (Also in the real world, this would have a 'sort by' menu or option)
