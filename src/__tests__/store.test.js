@@ -103,3 +103,33 @@ it('update product', () => {
 	expect(getByText('Title:', { exact: false })).toHaveTextContent('New Title');
 	expect(getByText('InCart:', { exact: false })).toHaveTextContent('3');
 });
+
+it('delete product', () => {
+	const TestComponent = () => {
+		const { state: globalState, dispatch } = useContext(store);
+		const { inventory } = globalState;
+		const { data } = inventory;
+
+		return <div>
+			{
+				data.length === 2 ?
+					<div>
+						<p>ID: {data[0].id}</p>
+						<p>Title: {data[0].title}</p>
+					</div>
+					:
+					<p>Waiting</p>
+			}
+			<button onClick={() => dispatch({ type: PRODUCT_DELETE, data: '0-unique-id' })}>Delete Product</button>
+		</div>;
+	};
+
+	const { getByText } = render(<StateProvider><TestComponent/></StateProvider>);
+
+	expect(getByText('Waiting')).toBeInTheDocument();
+
+	fireEvent.click(getByText('Delete Product'));
+
+	expect(getByText('ID:', { exact: false })).toHaveTextContent('1-unique-id');
+	expect(getByText('Title:', { exact: false })).toHaveTextContent('Haystack');
+});
