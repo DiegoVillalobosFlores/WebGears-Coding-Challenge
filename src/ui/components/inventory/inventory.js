@@ -34,7 +34,7 @@ const Inventory = () => {
 		dispatch({ type: PRODUCT_UPDATE, data: {...product, [field]: value} });
 	};
 
-	const onNewProductUpdate = (product, field, value) => {
+	const onNewProductEdit = (product, field, value) => {
 		setItem({...product, [field]: value});
 	};
 
@@ -44,7 +44,7 @@ const Inventory = () => {
 			<InventoryItem
 				product={item}
 				buttonLabel='Add Item'
-				onChange={onNewProductUpdate}
+				onChange={onNewProductEdit}
 				onClick={onProductAdd}
 			/>
 			{inventory.data.map(product => (
