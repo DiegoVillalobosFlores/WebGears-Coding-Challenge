@@ -12,7 +12,8 @@ const Input = ({ placeholder, type, value, field, className, onClick, onChange }
 	return (
 		<input
 			placeholder={placeholder}
-			type={type} value={value}
+			type={type}
+			value={value}
 			className={className}
 			onClick={onClick}
 			onChange={handleChange}
