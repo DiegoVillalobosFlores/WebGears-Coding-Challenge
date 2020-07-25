@@ -65,3 +65,41 @@ it('add product', () => {
 	expect(getByText('ID:', { exact: false })).toHaveTextContent('4-unique-id');
 	expect(getByText('Title:', { exact: false })).toHaveTextContent('test');
 });
+
+it('update product', () => {
+	const TestComponent = () => {
+		const { state: globalState, dispatch } = useContext(store);
+		const { inventory } = globalState;
+		const { data } = inventory;
+
+		const testProduct = {
+			id: '0-unique-id',
+			title: 'New Title',
+			inCart: 3,
+		};
+
+		return <div>
+			{
+				data[0].inCart > 0 ?
+					<div>
+						<p>ID: {data[0].id}</p>
+						<p>Title: {data[0].title}</p>
+						<p>InCart: {data[0].inCart}</p>
+					</div>
+					:
+					<p>Waiting</p>
+			}
+			<button onClick={() => dispatch({ type: PRODUCT_UPDATE, data: testProduct })}>Update Product</button>
+		</div>;
+	};
+
+	const { getByText } = render(<StateProvider><TestComponent/></StateProvider>);
+
+	expect(getByText('Waiting')).toBeInTheDocument();
+
+	fireEvent.click(getByText('Update Product'));
+
+	expect(getByText('ID:', { exact: false })).toHaveTextContent('0-unique-id');
+	expect(getByText('Title:', { exact: false })).toHaveTextContent('New Title');
+	expect(getByText('InCart:', { exact: false })).toHaveTextContent('3');
+});
