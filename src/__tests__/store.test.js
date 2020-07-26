@@ -24,7 +24,6 @@ it('inventory context', () => {
 			<TestComponent/>
 		</StateProvider>
 	);
-	// console.log(rendered.getByText('Length: ', { exact: false }));
 	expect(rendered.getByText('Length: ', { exact: false })).toHaveTextContent('3');
 	expect(rendered.getByText('First ID: ', { exact: false })).toHaveTextContent('0-unique-id');
 	expect(rendered.getByText('Second ID: ', { exact: false })).toHaveTextContent('1-unique-id');
