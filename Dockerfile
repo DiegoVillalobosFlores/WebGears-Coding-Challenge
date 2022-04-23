@@ -1,23 +1,46 @@
-# Use the official image as a parent image.
-FROM node:current-slim
+# Install dependencies only when needed
+FROM node:18-alpine AS deps
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Set the working directory.
-WORKDIR /usr/src/app
+# If using npm with a `package-lock.json` comment out above and use below instead
+# COPY package.json package-lock.json ./
+# RUN npm ci
 
-# Copy the file from your host to your current location.
-COPY package.json .
-COPY yarn.lock .
-
-# Run the command inside your image filesystem.
-RUN yarn install
-
-# Add metadata to the image to describe which port the container is listening on at runtime.
-EXPOSE 3000
-
-# Copy the rest of your app's source code from your host to your image filesystem.
-COPY . ./
+# Rebuild the source code only when needed
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 
 RUN yarn build
 
-# Run the specified command within the container.
-CMD [ "yarn", "start-server" ]
+# If using npm comment out above and use below instead
+# RUN npm run build
+
+# Production image, copy all the files and run next
+FROM node:18-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+# Uncomment the following line in case you want to disable telemetry during runtime.
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 react
+
+# You only need to copy next.config.js if you are NOT using the default configuration
+# COPY --from=builder /app/next.config.js ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+USER react
+
+EXPOSE 3000
+
+ENV PORT 3000
+
+CMD ["yarn", "start"]
